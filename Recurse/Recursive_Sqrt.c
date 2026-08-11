@@ -76,7 +76,7 @@ struct Result Recurse(double num){
 	result.iter_result = iter_init;
 	result.iter_coe1 = coe1;
 	iter_n = iter_init;
-	error_n = error+1; // initial condition for error
+	error_n = error+1; // initial condition for error (greater)
 	while(error_n>error || error_n<(-1)*error){
 		iter_nplus = coe1*iter_n + coe2*num/iter_n;
 		error_n = iter_nplus - iter_n;
