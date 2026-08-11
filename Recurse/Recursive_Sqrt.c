@@ -68,7 +68,7 @@ struct Result Recurse(double num){
 	double error = 1e-6;
 	double error_n;
 
-	// Iteration time and results;
+	// Iteration time and results
 	struct Result result;
 
 	// Initialization and Iteration
