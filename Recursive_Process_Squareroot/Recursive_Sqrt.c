@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-// Clarification
+// Definition
 struct Result{
 	double iter_result;
 	double iter_coe1;
