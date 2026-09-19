@@ -11,7 +11,7 @@ struct iter{
 
 // constant
 const double besqrt = 2;
-const double coeff = 0.5; // 0.21 < coeff < 1
+const double coeff = 0.5; // 0.21 < coeff < 1, 0.5 for Newton
 const double error = 1e-12;
 
 // function prototype
