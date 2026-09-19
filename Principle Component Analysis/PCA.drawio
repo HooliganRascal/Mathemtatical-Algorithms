@@ -1,0 +1,43 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="2RlAqpF0TX5r_thCDq49">
+    <mxGraphModel dx="591" dy="537" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="scDbDTowU7HrdlDIYZGS-17" edge="1" parent="1" source="scDbDTowU7HrdlDIYZGS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="scDbDTowU7HrdlDIYZGS-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-1" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Input:p" vertex="1">
+          <mxGeometry height="70" width="80" x="510" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-4" edge="1" parent="1" source="scDbDTowU7HrdlDIYZGS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="scDbDTowU7HrdlDIYZGS-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-2" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Select n,m" vertex="1">
+          <mxGeometry height="80" width="80" x="130" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-15" edge="1" parent="1" source="scDbDTowU7HrdlDIYZGS-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="scDbDTowU7HrdlDIYZGS-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-16" edge="1" parent="1" source="scDbDTowU7HrdlDIYZGS-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="scDbDTowU7HrdlDIYZGS-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Produce X" vertex="1">
+          <mxGeometry height="80" width="120" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-21" edge="1" parent="1" source="scDbDTowU7HrdlDIYZGS-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="scDbDTowU7HrdlDIYZGS-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-5" parent="1" style="whiteSpace=wrap;html=1;" value="Take p values and&amp;nbsp;&lt;br&gt;p vectors" vertex="1">
+          <mxGeometry height="60" width="120" x="490" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-11" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="Test F norm" vertex="1">
+          <mxGeometry height="80" width="120" x="490" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="scDbDTowU7HrdlDIYZGS-18" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Calculate DD&#39;X" vertex="1">
+          <mxGeometry x="560" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
