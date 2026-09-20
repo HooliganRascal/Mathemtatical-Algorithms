@@ -3,101 +3,126 @@
 
 using namespace std;
 
-// struct definition
-struct iter{
-	double result;
-	int times;
-};
-
 // constant
-const double besqrt = 2;
-const double coeff = 0.5; // 0.21 < coeff < 1, 0.5 for Newton
-const double error = 1e-12;
+const int level = 12;
+const double error = pow(10,-level);
+
+// struct definition
+struct input{
+	double target;
+	double xk;
+	double coeff;
+} ini;
+struct output{
+	double xkplus1;
+	int times;
+} fin1, fin2;
+
 
 // function prototype
-iter original(double init);
-iter advanced(double init);
-double phi(double x);
-double psi(double x);
+output original(input* init);
+output advanced(input* init);
+double phi(input* init);
+double psi(input* init);
 
+// main function
 int main(void){
-
-	double initial = 0.0;
 
 	// control display
 	cout.setf(ios::fixed, ios::floatfield);
-	cout.precision(12);
+	cout.precision(level);
 
 	// input
-	cout << "Initial number to iterate for sqrt(" << besqrt << "): ";
-	cin >> initial;
+	double reset;
+	cout << "Enter a positive number to calculate the square root: ";
+	cin >> ini.target;
+	cout << "Enter an initial value that is greater than 0: ";
+	cin >> ini.xk;
+	reset = ini.xk;
+	cout << endl;
 
 	// outut
-	iter iteration1 = original(initial);
-	iter iteration2 = advanced(initial);
+	cout << "Enter a coefficient to iterate and enter 'q' to quit: ";
+	while(cin >> ini.coeff){
 
-	// display
-	cout << "When coeff = " << coeff << ", 1-coeff = " << 1-coeff << endl;
-	cout << "Limit of error is " << error << endl;
-	cout << "For calculate sqrt(" << besqrt << ")" << endl;
+		// original iteration
+		fin1=original(&ini);
+		cout << "Original result: " << fin1.xkplus1 << endl;
+		cout << "Original Times: " << fin1.times << endl;
+		ini.xk = reset;
 
-	cout << "Original iteration consequence: " << endl;
-	cout << "Iteration times: " << iteration1.times << endl;
-	cout << "Iteration result: " << iteration1.result << endl;
-
-	cout << "Advanced iteration consequence: " << endl;
-	cout << "Iteration times: " << iteration2.times << endl;
-	cout << "Iteration result: " << iteration2.result << endl;
+		// Steffensen iteration
+		fin2=advanced(&ini);
+		cout << "Advanced Result: " << fin2.xkplus1 << endl;
+		cout << "Advanced Times: " << fin2.times << endl;
+		ini.xk = reset;
+		
+		// again
+		cout << endl;
+		cout << "Enter a coefficient to iterate and enter 'q' to quit: ";
+	}
 
 	return 0;
 }
 
 // phi(x)
-double phi(double x){
-	return (coeff*x + (1.0-coeff)*besqrt/x);
+double phi(input* init){
+	return ((init->coeff)*(init->xk) + 
+			(1.0-(init->coeff))*(init->target)/(init->xk));
 }
 
 // psi(x)
-double psi(double x){
-	 return (x-((phi(x)-x)*(phi(x)-x))/(phi(phi(x))-2*phi(x)+x));
+double psi(input* init){
+	double pphi = ((init->coeff)*(phi(init)) + 
+			(1.0-(init->coeff))*(init->target)/(phi(init)));
+	if((pphi-2*phi(init)+(init->xk))==0.0){
+		return phi(init);
+	}
+	else{
+		return (init->xk)-
+			((phi(init)-(init->xk))*(phi(init)-(init->xk)))/
+			(pphi-2*phi(init)+(init->xk));
+	}
 }
 
 // original iteration
-iter original(double init){
+output original(input* init){
 
-	int n = 0;
-	double xk = init;
-	double xkplus1 = phi(init);
-	iter consequence;
+	output fina;
 
-	while(fabs(xkplus1-xk)>error){
-		xk = xkplus1; 
-		xkplus1 = phi(xk);
-		++n;
+	// iteration
+	fina.xkplus1 = phi(init);
+
+	// test
+	if(fabs((init->xk)-(fina.xkplus1))<error){
+		fina.times = 1;
+		return fina;
 	}
-
-	consequence.times = n;
-	consequence.result = xkplus1;
-
-	return consequence;
+	else{
+		init->xk = fina.xkplus1;
+		fina = original(init);
+		++fina.times;
+		return fina;
+	}
 }
 
 // advanced iteration
-iter advanced(double init){
+output advanced(input* init){
 
-	int n = 0;
-	double xk = init;
-	double xkplus1 = psi(init);
-	iter consequence;
+	output fina;
 
-	while(fabs(xkplus1-xk)>error){
-		xk = xkplus1; 
-		xkplus1 = psi(xk);
-		++n;
+	// iteration
+	fina.xkplus1 = psi(init);
+
+	// test
+	if(fabs((init->xk)-(fina.xkplus1))<error){
+		fina.times = 1;
+		return fina;
 	}
-
-	consequence.times = n;
-	consequence.result = xkplus1;
-
-	return consequence;
+	else{
+		init->xk = fina.xkplus1;
+		fina = advanced(init);
+		++fina.times;
+		return fina;
+	}
 }
