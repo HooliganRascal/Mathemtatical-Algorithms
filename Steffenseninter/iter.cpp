@@ -18,7 +18,6 @@ struct output{
 	int times;
 } fin1, fin2;
 
-
 // function prototype
 output original(input* init);
 output advanced(input* init);
