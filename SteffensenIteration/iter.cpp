@@ -32,7 +32,7 @@ int main(void){
 	cout.precision(level);
 
 	// input
-	double reset;
+	double reset = 0.0;
 	cout << "Enter a positive number to calculate the square root: ";
 	cin >> ini.target;
 	cout << "Enter an initial value that is greater than 0: ";
@@ -74,6 +74,8 @@ double phi(input* init){
 double psi(input* init){
 	double pphi = ((init->coeff)*(phi(init)) + 
 			(1.0-(init->coeff))*(init->target)/(phi(init)));
+
+	// Test for denominator
 	if((pphi-2*phi(init)+(init->xk))==0.0){
 		return phi(init);
 	}
@@ -82,6 +84,12 @@ double psi(input* init){
 			((phi(init)-(init->xk))*(phi(init)-(init->xk)))/
 			(pphi-2*phi(init)+(init->xk));
 	}
+
+	// Not test
+	// return (init->xk)-
+	// 	((phi(init)-(init->xk))*(phi(init)-(init->xk)))/
+	// 	(pphi-2*phi(init)+(init->xk));
+	
 }
 
 // original iteration
